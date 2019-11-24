@@ -1,0 +1,5 @@
+@import '../header/variables';
+@import '../footer/variables';
+
+$content-container-height: calc(100vh - #{$header-height + $footer-height});
+$content-container-after-height: calc(1 * #{$content-container-height});

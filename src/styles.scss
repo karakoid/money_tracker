@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+body {
+  margin: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$primary-color: mat-color(mat-palette($mat-deep-purple, 500));
+//$secondary-color: mat-color(mat-palette($mat-red, 50));
+$button-active: mat-color(mat-palette($mat-deep-purple, 100));
+$text-expenses-color: mat-color(mat-palette($mat-red, 700));
+$text-income-color: mat-color(mat-palette($mat-indigo, 700));

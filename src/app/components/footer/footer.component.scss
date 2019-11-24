@@ -1,0 +1,24 @@
+@import '../../../vars/footer/variables';
+@import '../../../vars/footer/colors';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: $footer-height;
+  overflow: hidden;
+}
+
+.footer-info {
+  height: 100%;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  font-size: $footer-font-size;
+  color: $footer-font-color;
+  height: 50%;
+  margin: 0 $footer-text-margin;
+}

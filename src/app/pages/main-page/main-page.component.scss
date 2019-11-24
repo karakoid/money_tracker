@@ -1,0 +1,71 @@
+@import '../../../styles';
+
+$main-page-container-width: 96vw;
+$main-page-container-padding: 2vw;
+
+$slider-width: 96vw;
+
+.main-page-container {
+  $container-margin: 2vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $main-page-container-width;
+  height: 100%;
+  padding: 0 $main-page-container-padding;
+
+  .slider-buttons-container {
+    display: flex;
+    width: $slider-width;
+    margin: $container-margin 0;
+    padding: 0;
+
+    .slider-button-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .slider-button {
+        width: 80%;
+        height: 100%;
+        transition: 0.5s;
+
+        .button-text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .slider {
+    height: 100%;
+    width: $slider-width;
+    overflow: hidden;
+    margin: 0 0 $container-margin;
+    position: relative;
+
+    .slider-inner {
+      height: 100%;
+      width: calc(#{$slider-width} * 3);
+      display: flex;
+      position: relative;
+      left: 0;
+      transition: 1s;
+
+      .slide {
+        width: $slider-width;
+        height: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.button-active {
+  background: $button-active;
+}

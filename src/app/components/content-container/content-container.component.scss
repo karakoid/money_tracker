@@ -1,0 +1,23 @@
+@import '../../../vars/content-container/variables';
+@import '../../../vars/content-container/colors';
+@import '../../../vars/header/variables';
+@import '../../../styles';
+
+.content-container {
+  position: relative;
+  width: 100%;
+  height: $content-container-height;
+  overflow: hidden;
+}
+
+.content-container::after {
+  content: "";
+  position: absolute;
+  top: -350px;
+  left: -120px;
+  width: 100%;
+  height: $content-container-after-height;
+  background: $primary-color;
+  transform: rotate(-15deg);
+  z-index: -1;
+}

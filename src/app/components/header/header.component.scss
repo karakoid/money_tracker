@@ -1,0 +1,16 @@
+@import '../../../vars/header/variables';
+@import '../../../vars/header/colors';
+@import '../../../styles';
+
+.header {
+  width: 100%;
+  height: $header-height;
+  color: $header-font-color;
+  box-shadow: $header-box-shadow;
+  background: $primary-color;
+
+  .title {
+    font-size: $header-text-size;
+    margin: 0 $header-text-margin;
+  }
+}

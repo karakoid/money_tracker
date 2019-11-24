@@ -1,0 +1,33 @@
+<div class="main-page-container">
+  <mat-card class="slider-buttons-container">
+    <div class="slider-button-container" (click)="changeSliderView(slideProps.transactions)">
+      <button mat-button class="slider-button"
+              [class.button-active]="slideProps.transactions.active">
+       Transactions
+      </button>
+    </div>
+    <div class="slider-button-container" (click)="changeSliderView(slideProps.stats)">
+      <button mat-button class="slider-button"
+              [class.button-active]="slideProps.stats.active">
+        Statistics
+      </button>
+    </div>
+    <div class="slider-button-container" (click)="changeSliderView(slideProps.accounts)">
+      <button mat-button class="slider-button"
+              [class.button-active]="slideProps.accounts.active">
+        Accounts
+      </button>
+    </div>
+  </mat-card>
+  <div class="slider">
+    <div class="slider-inner" #innerSliderContainer>
+      <div class="slide" id="trans" #slide>
+        <app-list type="trans"></app-list>
+      </div>
+      <div class="slide" id="stats" style="background: yellow"></div>
+      <div class="slide" id="accounts">
+        <app-list type="accounts"></app-list>
+      </div>
+    </div>
+  </div>
+</div>

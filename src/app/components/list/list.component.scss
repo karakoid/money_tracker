@@ -1,0 +1,54 @@
+@import '../../../styles';
+
+$container-padding-top: 1rem;
+$between-day-margin: 0.5rem;
+.item-container {
+  $top-bottom-text-margin: 0.5rem;
+  $side-text-margin: 1rem;
+
+  width: 60%;
+  height: 100%;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  padding-top: $container-padding-top;
+
+  .item {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 $between-day-margin;
+    //background: $secondary-color;
+
+    .text-income {
+      color: $text-income-color;
+    }
+
+    .text-expenses {
+      color: $text-expenses-color;
+    }
+
+    .title {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr 1fr;
+      font-weight: bold;
+    }
+
+    .items-list {
+      $divider-side-margin: 1rem;
+
+      .list-item {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+
+        & > mat-divider {
+          width: calc(100% - 2 * #{$divider-side-margin});
+          margin-left: $divider-side-margin;
+        }
+      }
+    }
+
+    span {
+      margin: $top-bottom-text-margin $side-text-margin;
+    }
+  }
+}
