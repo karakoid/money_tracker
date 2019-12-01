@@ -6,18 +6,17 @@ $between-day-margin: 0.5rem;
   $top-bottom-text-margin: 0.5rem;
   $side-text-margin: 1rem;
 
-  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   height: 100%;
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
   padding-top: $container-padding-top;
 
   .item {
-    width: 100%;
+    width: 95%;
     padding: 0;
     margin: 0 0 $between-day-margin;
-    //background: $secondary-color;
 
     .text-income {
       color: $text-income-color;
@@ -44,6 +43,11 @@ $between-day-margin: 0.5rem;
           width: calc(100% - 2 * #{$divider-side-margin});
           margin-left: $divider-side-margin;
         }
+      }
+
+      .list-item:hover {
+        transition: 0.5s;
+        background: lightgray;
       }
     }
 

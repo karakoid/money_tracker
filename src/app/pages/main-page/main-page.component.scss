@@ -58,9 +58,25 @@ $slider-width: 96vw;
       transition: 1s;
 
       .slide {
+        display: flex;
         width: $slider-width;
         height: 100%;
         border-radius: 4px;
+
+        .list-container,
+        .edit-container {
+          padding: 0;
+          background: inherit;
+          box-shadow: none;
+        }
+
+        .list-container {
+          flex: 2;
+        }
+
+        .edit-container {
+          flex: 1;
+        }
       }
     }
   }

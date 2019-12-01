@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {TransactionModel} from "../../models/transactions/transaction.model";
+import {AccountModel} from "../../models/accounts/account.model";
 
 @Component({
   selector: 'app-main-page',
@@ -8,6 +10,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class MainPageComponent implements OnInit {
   @ViewChild('innerSliderContainer', {static: false}) innerSliderContainer: ElementRef;
   @ViewChild('slide', {static: false}) slide: ElementRef;
+
+  transaction: TransactionModel;
+  account: AccountModel;
 
   slideProps = {
     'transactions': {
@@ -40,5 +45,9 @@ export class MainPageComponent implements OnInit {
       this.slideProps[prop].active = false;
     });
     slideProp.active = true;
+  }
+
+  onTransactionOpen(item: TransactionModel) {
+    this.transaction = item;
   }
 }

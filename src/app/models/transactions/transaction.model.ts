@@ -1,9 +1,10 @@
 export interface TransactionModel {
+  id: number;
   date: string;
   category: string;
   account: string;
-  expenses: number;
-  income: number;
+  expenses: string;
+  income: string;
   currency: string;
   comment: string;
 }

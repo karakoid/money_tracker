@@ -1,506 +1,546 @@
-import { RequestedTransactionsModel } from "../app/models/transactions/requested.transactions.model";
-
-export const LIST_TRANSACTIONS: RequestedTransactionsModel = {
-  data: [
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    },
-    {
-      date: JSON.stringify(new Date()),
-      totalDayExpenses: 7,
-      totalDayIncome: 40,
-      transactions: [
-        {
-          date: JSON.stringify(new Date()),
-          category: 'food',
-          account: 'belinvest',
-          expenses: 7,
-          income: 0,
-          currency: '$',
-          comment: 'chiabatta',
-        },
-        {
-          date: JSON.stringify(new Date()),
-          category: 'salary',
-          account: 'alpha',
-          expenses: 0,
-          income: 40,
-          currency: '$',
-          comment: '',
-        }
-      ],
-    }
-  ],
-};
+// import { RequestedTransactionsModel } from "../app/models/transactions/requested.transactions.model";
+//
+// export const LIST_TRANSACTIONS: RequestedTransactionsModel = {
+//   data: [
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 1,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 2,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 3,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 4,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 5,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 6,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 7,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 8,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 9,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 10,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 11,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 12,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 13,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 14,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 15,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 16,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 17,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 18,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 19,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 20,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 21,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 22,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 23,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 24,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 25,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 26,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 27,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 28,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 29,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 30,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 31,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 32,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 33,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 34,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 35,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 36,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 37,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 38,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     },
+//     {
+//       date: JSON.stringify(new Date()),
+//       totalDayExpenses: 7,
+//       totalDayIncome: 40,
+//       transactions: [
+//         {
+//           id: 39,
+//           date: JSON.stringify(new Date()),
+//           category: 'food',
+//           account: 'belinvest',
+//           expenses: 7,
+//           income: 0,
+//           currency: '$',
+//           comment: 'chiabatta',
+//         },
+//         {
+//           id: 40,
+//           date: JSON.stringify(new Date()),
+//           category: 'salary',
+//           account: 'alpha',
+//           expenses: 0,
+//           income: 40,
+//           currency: '$',
+//           comment: '',
+//         }
+//       ],
+//     }
+//   ],
+// };

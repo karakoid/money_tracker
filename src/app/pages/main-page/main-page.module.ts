@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 import { ListModule } from '../../components/list/list.module';
+import { AddEditModule } from '../../components/add-edit/add-edit.module';
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -14,6 +15,7 @@ import { ListModule } from '../../components/list/list.module';
     MatCardModule,
     MatButtonModule,
     ListModule,
+    AddEditModule,
   ],
   exports: [
     MainPageComponent,

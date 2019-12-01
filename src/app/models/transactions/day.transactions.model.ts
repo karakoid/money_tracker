@@ -4,5 +4,5 @@ export interface DayTransactionsModel {
   date: string;
   totalDayIncome: number;
   totalDayExpenses: number;
-  transactions: Array<TransactionModel>;
+  data: Array<TransactionModel>;
 }
