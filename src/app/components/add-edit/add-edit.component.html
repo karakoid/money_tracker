@@ -1,0 +1,43 @@
+<div class="form-container" *ngIf="transaction || account || add">
+  <div>
+    <mat-card class="title-container">
+      <span class="title" *ngIf="add">{{ getDate() }}</span>
+      <span class="title" *ngIf="!add">{{ getDate(transaction.date) }}</span>
+    </mat-card>
+    <form [formGroup]="form" (ngSubmit)="add ? addTransaction() : editTransaction()" *ngIf="type === 'trans'">
+      <mat-card class="form">
+        <mat-form-field>
+          <input type="text" matInput placeholder="category" formControlName="category" />
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="account" formControlName="account" />
+        </mat-form-field>
+        <div #income>
+          <mat-form-field floatLabel="never" *ngIf="transaction && transaction.income !== '0' || add">
+            <input type="text" matInput placeholder="income" formControlName="income" />
+          </mat-form-field>
+        </div>
+        <div #expenses>
+          <mat-form-field floatLabel="never" *ngIf="transaction && transaction.expenses !== '0' || add">
+            <input type="text" matInput placeholder="expenses" formControlName="expenses" />
+          </mat-form-field>
+        </div>
+        <mat-form-field floatLabel="never">
+          <textarea matInput placeholder="comment" formControlName="comment"></textarea>
+        </mat-form-field>
+        <button mat-button (click)="deleteTransaction()" *ngIf="!add">Delete</button>
+        <div class="buttons-container">
+          <button mat-button (click)="closeForm()">Cancel</button>
+          <button mat-button (click)="addTransaction()">Submit</button>
+        </div>
+      </mat-card>
+    </form>
+  </div>
+</div>
+<div class="form-container full-height" *ngIf="!transaction || !account">
+  <mat-card class="info-container">
+    <span>Click any item to edit or remove it</span>
+    <span>or</span>
+    <button mat-button (click)="openForm()">Add item</button>
+  </mat-card>
+</div>
