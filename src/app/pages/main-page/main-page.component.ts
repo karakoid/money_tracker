@@ -13,6 +13,7 @@ export class MainPageComponent implements OnInit {
 
   transaction: TransactionModel;
   account: AccountModel;
+  reload: number;
 
   slideProps = {
     'transactions': {
@@ -31,7 +32,9 @@ export class MainPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reload = 0;
+  }
 
   changeSliderView(slideProp): void {
     const slideWidth = Math.ceil(this.slide.nativeElement.offsetWidth);
@@ -49,5 +52,9 @@ export class MainPageComponent implements OnInit {
 
   onTransactionOpen(item: TransactionModel) {
     this.transaction = item;
+  }
+
+  onTransactionsChange() {
+    this.reload++;
   }
 }

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
@@ -16,6 +17,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     CommonModule,
     MatCardModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
     PerfectScrollbarModule,
     HttpClientModule,
   ],

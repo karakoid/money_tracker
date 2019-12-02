@@ -21,4 +21,16 @@ export class HttpService {
   get(url: string) {
     return this.http.get(url);
   }
+
+  put(url: string, body) {
+    return this.http.put(url, body);
+  }
+
+  post(url: string, body) {
+    return this.http.post(url, body);
+  }
+
+  delete(url: string) {
+    return this.http.delete(url);
+  }
 }

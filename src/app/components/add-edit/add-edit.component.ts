@@ -1,8 +1,10 @@
-import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
 
-import {TransactionModel} from '../../models/transactions/transaction.model';
-import {AccountModel} from "../../models/accounts/account.model";
+import { AddEditService } from "../../services/addEdit/add-edit.service";
+
+import { TransactionModel } from '../../models/transactions/transaction.model';
+import { AccountModel } from "../../models/accounts/account.model";
 
 import * as moment from 'moment';
 
@@ -16,6 +18,8 @@ export class AddEditComponent implements OnInit, OnChanges {
   @Input() transaction: TransactionModel;
   @Input() account: AccountModel;
 
+  @Output() transactionsChanged: EventEmitter<any> = new EventEmitter();
+
   @ViewChild('income', {static: false}) incomeContainer: ElementRef;
   @ViewChild('expenses', {static: false}) expensesContainer: ElementRef;
 
@@ -23,7 +27,7 @@ export class AddEditComponent implements OnInit, OnChanges {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor(private addEditService: AddEditService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -84,22 +88,47 @@ export class AddEditComponent implements OnInit, OnChanges {
 
   closeForm() {
     this.add = false;
+    this.resetForm();
+  }
+
+  private getForm() {
+    const income = parseInt(this.form.controls.income.value, 10);
+    const expenses = parseInt(this.form.controls.expenses.value, 10);
+    return {
+      date: this.transaction.date,
+      category: this.form.controls.category.value,
+      account: this.form.controls.account.value,
+      expenses: expenses ? expenses : '0',
+      income: income ? income : '0',
+      currency: 'USD',
+      comment: this.form.controls.comment.value,
+    };
   }
 
   addTransaction() {
-    this.resetForm();
+    if (this.validateForm()) {
+      this.addEditService.addTransaction(this.getForm()).subscribe((res) => {
+        this.transactionsChanged.emit();
+        this.resetForm();
+      });
+    }
   }
 
   editTransaction() {
-    this.resetForm();
+    if (this.validateForm()) {
+      const body = {...this.getForm(), id: this.transaction.id};
+      this.addEditService.editTransaction(body).subscribe((val) => {
+        this.transactionsChanged.emit();
+        this.resetForm();
+      });
+    }
   }
 
   deleteTransaction() {
-    this.resetForm();
-  }
-
-  getCurrentDate() {
-    return moment(new Date()).format('ll');
+    this.addEditService.deleteTransaction(this.transaction.id).subscribe(() => {
+      this.transactionsChanged.emit();
+      this.resetForm();
+    });
   }
 
   getDate(date$?: string) {
@@ -110,5 +139,15 @@ export class AddEditComponent implements OnInit, OnChanges {
       value = new Date();
     }
     return moment(value).format('ll');
+  }
+
+  validateForm(): boolean {
+    const category = this.form.controls.category.value;
+    const account = this.form.controls.account.value;
+    const expenses = parseInt(this.form.controls.expenses.value, 10);
+    const income = parseInt(this.form.controls.income.value, 10);
+    return category && category.length > 0 && category.length < 50 &&
+      account && account.length > 0 && account.length < 50 &&
+      (expenses > 0 || income > 0);
   }
 }

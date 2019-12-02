@@ -1,4 +1,4 @@
-<perfect-scrollbar>
+<perfect-scrollbar *ngIf="loaded">
   <div class="item-container" (click)="openTransaction($event)">
     <mat-card class="item" *ngFor="let item of data; let i = index">
       <div class="title">
@@ -13,7 +13,7 @@
       <div class="items-list" *ngIf="type === 'trans'">
         <div class="list-item" *ngFor="let trans of item.data; let j = index" id="{{ trans.id }}">
           <span>{{ trans.category }}</span>
-          <span>{{ trans.amount }}</span>
+          <span>{{ trans.account }}</span>
           <span *ngIf="trans.income !== '0'" class="text-income">{{ trans.income }} {{ trans.currency }}</span>
           <span *ngIf="trans.expenses !== '0'" class="text-expenses">{{ trans.expenses }} {{ trans.currency }}</span>
           <mat-divider></mat-divider>
@@ -30,3 +30,8 @@
     </mat-card>
   </div>
 </perfect-scrollbar>
+<div class="spinner-container" *ngIf="!loaded">
+  <mat-card>
+    <mat-spinner></mat-spinner>
+  </mat-card>
+</div>

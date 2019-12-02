@@ -1,28 +1,38 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
 
 import { ListService } from '../../services/list/list.service';
 
 import { DayTransactionsModel } from '../../models/transactions/day.transactions.model';
-import { AccountsModel } from '../../models/accounts/accounts.model';
-import {TransactionModel} from "../../models/transactions/transaction.model";
+import { AddEditService } from "../../services/addEdit/add-edit.service";
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges {
   @Input() type: string;
-  @Output() transactionOpen: EventEmitter<any> = new EventEmitter();
-  data;
+  @Input() reload: number;
 
-  constructor(private listService: ListService) { }
+  @Output() transactionOpen: EventEmitter<any> = new EventEmitter();
+
+  data;
+  loaded: boolean;
+
+  constructor(private listService: ListService,
+              private addEditService: AddEditService) { }
 
   ngOnInit() {
     this.listService.requestData(this.type).subscribe((data) => {
       this.data = data;
+      this.loaded = true;
     });
+  }
+
+  ngOnChanges() {
+    this.loaded = false;
+    this.ngOnInit();
   }
 
   getTotal(type: string, item: DayTransactionsModel): number {
@@ -41,7 +51,9 @@ export class ListComponent implements OnInit {
     const target = $event.target;
     const targetParent = target.parentElement;
     if (target.classList.contains('list-item') || targetParent.classList.contains('list-item')) {
+      this.addEditService.loading = true;
       this.listService.requestTransaction(target.id | targetParent.id).subscribe((trans) => {
+        this.addEditService.loading = false;
         this.transactionOpen.emit(trans);
       });
     }

@@ -31,7 +31,7 @@ $slider-width: 96vw;
       .slider-button {
         width: 80%;
         height: 100%;
-        transition: 0.5s;
+        transition: 1s;
 
         .button-text {
           display: flex;
@@ -76,6 +76,11 @@ $slider-width: 96vw;
 
         .edit-container {
           flex: 1;
+        }
+
+        .chart-container {
+          width: 100%;
+          height: 100%;
         }
       }
     }

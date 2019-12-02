@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ListModule } from '../../components/list/list.module';
 import { AddEditModule } from '../../components/add-edit/add-edit.module';
 
+import { PieChartModule } from '../../components/pie-chart/pie-chart.module';
+
 @NgModule({
   declarations: [MainPageComponent],
   imports: [
@@ -16,6 +18,7 @@ import { AddEditModule } from '../../components/add-edit/add-edit.module';
     MatButtonModule,
     ListModule,
     AddEditModule,
+    PieChartModule,
   ],
   exports: [
     MainPageComponent,
