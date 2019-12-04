@@ -16,6 +16,7 @@ export class ListComponent implements OnInit, OnChanges {
   @Input() reload: number;
 
   @Output() transactionOpen: EventEmitter<any> = new EventEmitter();
+  @Output() accountOpen: EventEmitter<any> = new EventEmitter();
 
   data;
   loaded: boolean;
@@ -47,15 +48,22 @@ export class ListComponent implements OnInit, OnChanges {
     return moment(date$.substring(0, date$.indexOf('T'))).format('ll');
   }
 
-  openTransaction($event) {
+  openItem($event) {
     const target = $event.target;
     const targetParent = target.parentElement;
     if (target.classList.contains('list-item') || targetParent.classList.contains('list-item')) {
       this.addEditService.loading = true;
-      this.listService.requestTransaction(target.id | targetParent.id).subscribe((trans) => {
-        this.addEditService.loading = false;
-        this.transactionOpen.emit(trans);
-      });
+      if (this.type === 'trans') {
+        this.listService.requestTransaction(target.id | targetParent.id).subscribe((trans) => {
+          this.addEditService.loading = false;
+          this.transactionOpen.emit(trans);
+        });
+      } else {
+        this.listService.requestAccount(target.id | targetParent.id).subscribe((acc) => {
+          this.addEditService.loading = false;
+          this.accountOpen.emit(acc);
+        });
+      }
     }
   }
 }

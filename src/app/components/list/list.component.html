@@ -1,35 +1,42 @@
 <perfect-scrollbar *ngIf="loaded">
-  <div class="item-container" (click)="openTransaction($event)">
-    <mat-card class="item" *ngFor="let item of data; let i = index">
-      <div class="title">
-        <span *ngIf="type === 'trans'">{{ getDate(item.date) }}</span>
-        <span *ngIf="type === 'accounts'">{{ item.category }}</span>
-        <span></span>
-        <span *ngIf="type === 'accounts'"></span>
-        <span class="text-income" *ngIf="type === 'trans'">{{ getTotal('income', item) }} {{ item.data[0].currency}}</span>
-        <span class="text-expenses" *ngIf="type === 'trans'">{{ getTotal('expenses', item) }} {{ item.data[0].currency }}</span>
-        <span class="text-income" *ngIf="type === 'accounts'">{{ item.total }} {{ item.currency }}</span>
-      </div>
-      <div class="items-list" *ngIf="type === 'trans'">
-        <div class="list-item" *ngFor="let trans of item.data; let j = index" id="{{ trans.id }}">
-          <span>{{ trans.category }}</span>
-          <span>{{ trans.account }}</span>
-          <span *ngIf="trans.income !== '0'" class="text-income">{{ trans.income }} {{ trans.currency }}</span>
-          <span *ngIf="trans.expenses !== '0'" class="text-expenses">{{ trans.expenses }} {{ trans.currency }}</span>
-          <mat-divider></mat-divider>
-        </div>
-      </div>
-      <div class="items-list" *ngIf="type === 'accounts'">
-        <div class="list-item" *ngFor="let account of item.accounts">
-          <span>{{ account.name }}</span>
+  <div class="item-container" (click)="openItem($event)">
+
+    <div class="type-container" *ngIf="type === 'trans'">
+      <mat-card class="item" *ngFor="let item of data; let i = index">
+        <div class="title">
+          <span *ngIf="type === 'trans'">{{ getDate(item.date) }}</span>
           <span></span>
-          <span class="text-income">{{ account.total }} {{ account.currency }}</span>
-          <mat-divider></mat-divider>
+          <span class="text-income">{{ getTotal('income', item) }} {{ item.data[0].currency}}</span>
+          <span class="text-expenses">{{ getTotal('expenses', item) }} {{ item.data[0].currency }}</span>
         </div>
-      </div>
-    </mat-card>
+        <div class="items-list">
+          <div class="list-item" *ngFor="let trans of item.data; let j = index" id="{{ trans.id }}">
+            <span>{{ trans.category }}</span>
+            <span>{{ trans.account }}</span>
+            <span *ngIf="trans.income !== '0'" class="text-income">{{ trans.income }} {{ trans.currency }}</span>
+            <span *ngIf="trans.expenses !== '0'" class="text-expenses">{{ trans.expenses }} {{ trans.currency }}</span>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="type-container" *ngIf="type === 'accounts'">
+      <mat-card class="item">
+        <div class="items-list">
+          <div class="list-item" *ngFor="let account of data" id="{{ account.id }}">
+            <span>{{ account.name }}</span>
+            <span></span>
+            <span class="text-income">{{ account.income - account.expenses }} {{ account.currency }}</span>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
   </div>
 </perfect-scrollbar>
+
 <div class="spinner-container" *ngIf="!loaded">
   <mat-card>
     <mat-spinner></mat-spinner>

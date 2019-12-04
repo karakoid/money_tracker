@@ -63,6 +63,18 @@ $slider-width: 96vw;
         height: 100%;
         border-radius: 4px;
 
+        .chart-container {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          mat-card {
+            padding: 6rem;
+          }
+        }
+
         .list-container,
         .edit-container {
           padding: 0;
@@ -76,6 +88,9 @@ $slider-width: 96vw;
 
         .edit-container {
           flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .chart-container {

@@ -54,7 +54,15 @@ export class MainPageComponent implements OnInit {
     this.transaction = item;
   }
 
+  onAccountOpen(account) {
+    this.account = account;
+  }
+
   onTransactionsChange() {
+    this.reload++;
+  }
+
+  onAccountChange() {
     this.reload++;
   }
 }

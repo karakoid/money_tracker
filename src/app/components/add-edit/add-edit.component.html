@@ -1,11 +1,11 @@
 <div *ngIf="!this.addEditService.loading">
   <div class="form-container" *ngIf="transaction || account || add">
-    <div>
+    <div *ngIf="type === 'trans'">
       <mat-card class="title-container">
         <span class="title" *ngIf="add">{{ getDate() }}</span>
         <span class="title" *ngIf="!add">{{ getDate(transaction.date) }}</span>
       </mat-card>
-      <form [formGroup]="form" *ngIf="type === 'trans'">
+      <form [formGroup]="form">
         <mat-card class="form">
           <mat-form-field>
             <input type="text" matInput placeholder="category" formControlName="category" />
@@ -26,17 +26,36 @@
           <mat-form-field floatLabel="never">
             <textarea matInput placeholder="comment" formControlName="comment"></textarea>
           </mat-form-field>
-          <button mat-button (click)="deleteTransaction()" *ngIf="!add">Delete</button>
+          <button mat-button (click)="deleteItem()" *ngIf="!add">Delete</button>
           <div class="buttons-container">
             <button mat-button (click)="closeForm()">Cancel</button>
-            <button mat-button (click)="add ? addTransaction() : editTransaction()">Submit</button>
+            <button mat-button (click)="add ? addItem() : editItem()">Submit</button>
           </div>
         </mat-card>
       </form>
     </div>
+
+    <div *ngIf="type === 'accounts'">
+      <mat-card class="title-container" *ngIf="!add">
+        <span class="title">{{ account.name }}</span>
+      </mat-card>
+      <form [formGroup]="form">
+        <mat-card class="form">
+          <mat-form-field>
+            <input type="text" matInput placeholder="name" formControlName="name" />
+          </mat-form-field>
+          <button mat-button (click)="deleteItem()" *ngIf="!add">Delete</button>
+          <div class="buttons-container">
+            <button mat-button (click)="closeForm()">Cancel</button>
+            <button mat-button (click)="add ? addItem() : editItem()">Submit</button>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+
   </div>
 </div>
-<div class="form-container full-height" *ngIf="!this.addEditService.loading && (!transaction || !account)">
+<div class="form-container full-height" *ngIf="!(transaction || account) && !add">
   <mat-card class="info-container">
     <span>Click any item to edit or remove it</span>
     <span>or</span>
