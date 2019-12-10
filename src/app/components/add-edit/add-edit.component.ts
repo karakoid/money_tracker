@@ -6,6 +6,7 @@ import { AddEditService } from "../../services/addEdit/add-edit.service";
 import { TransactionModel } from '../../models/transactions/transaction.model';
 
 import * as moment from 'moment';
+import {MatSelect} from "@angular/material/select";
 
 @Component({
   selector: 'app-add-edit',
@@ -22,24 +23,41 @@ export class AddEditComponent implements OnInit, OnChanges {
 
   @ViewChild('income', {static: false}) incomeContainer: ElementRef;
   @ViewChild('expenses', {static: false}) expensesContainer: ElementRef;
+  @ViewChild('category', {static: false}) selectedCategory;
+  @ViewChild('account', {static: false}) selectedAccount;
 
   add: boolean;
 
+  categories;
+  accounts;
   form: FormGroup;
+
+  selectedCategoryValue;
+  selectedAccountValue;
 
   constructor(private addEditService: AddEditService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
-      category: new FormControl(''),
-      account: new FormControl(''),
       income: new FormControl(''),
       expenses: new FormControl(''),
       comment: new FormControl(''),
       name: new FormControl(''),
     });
 
+    this.getFields();
+
     this.formValueListener();
+  }
+
+  getFields() {
+    this.addEditService.getCategories().subscribe((val) => {
+      this.categories = val;
+    });
+
+    this.addEditService.getAccounts().subscribe((val) => {
+      this.accounts = val;
+    });
   }
 
   ngOnChanges() {
@@ -69,8 +87,8 @@ export class AddEditComponent implements OnInit, OnChanges {
   initForm() {
     if (this.type === 'trans') {
       if (this.transaction) {
-        this.form.controls.category.setValue(this.transaction.category);
-        this.form.controls.account.setValue(this.transaction.account);
+        this.selectedCategoryValue = this.transaction.category;
+        this.selectedAccountValue = this.transaction.account;
         this.form.controls.income.setValue(`${this.transaction.income}${this.transaction.currency}`);
         this.form.controls.expenses.setValue(`${this.transaction.expenses}${this.transaction.currency}`);
         this.form.controls.comment.setValue(this.transaction.comment);
@@ -85,8 +103,6 @@ export class AddEditComponent implements OnInit, OnChanges {
   resetForm() {
     if (this.type === 'trans') {
       this.transaction = null;
-      this.form.controls.category.setValue('');
-      this.form.controls.account.setValue('');
       this.form.controls.income.setValue('');
       this.form.controls.expenses.setValue('');
       this.form.controls.comment.setValue('');
@@ -110,10 +126,12 @@ export class AddEditComponent implements OnInit, OnChanges {
     if (this.type === 'trans') {
       const income = parseInt(this.form.controls.income.value, 10);
       const expenses = parseInt(this.form.controls.expenses.value, 10);
+      const category = this.selectedCategory._value;
+      const account = this.selectedAccount._value;
       result = {
         date: this.transaction ? this.transaction.date : JSON.stringify(new Date()),
-        category: this.form.controls.category.value,
-        account: this.form.controls.account.value,
+        category: category ? category : '',
+        account: account ? account : '',
         expenses: expenses ? expenses : '0',
         income: income ? income : '0',
         currency: 'USD',
@@ -140,7 +158,7 @@ export class AddEditComponent implements OnInit, OnChanges {
           .subscribe((res) => {
             this.accountChanged.emit();
             this.closeForm();
-          })
+          });
       }
     }
   }
@@ -190,13 +208,18 @@ export class AddEditComponent implements OnInit, OnChanges {
   validateForm(): boolean {
     let result;
     if (this.type === 'trans') {
-      const category = this.form.controls.category.value;
-      const account = this.form.controls.account.value;
       const expenses = parseInt(this.form.controls.expenses.value, 10);
       const income = parseInt(this.form.controls.income.value, 10);
-      result = category && category.length > 0 && category.length < 50 &&
-        account && account.length > 0 && account.length < 50 &&
-        (expenses > 0 || income > 0);
+
+      let category = this.selectedCategory._value;
+      category = category ? category : '';
+
+      let account = this.selectedAccount._value;
+      account = account ? account : '';
+
+      const comment = this.form.controls.comment.value;
+
+      result = account.length > 0 && category.length > 0 && (expenses > 0 || income > 0) && comment.length < 255;
     } else if (this.type === 'accounts') {
       const name = this.form.controls.name.value;
       result = name && name.length > 0;

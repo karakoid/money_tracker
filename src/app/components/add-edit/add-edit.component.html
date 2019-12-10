@@ -7,12 +7,16 @@
       </mat-card>
       <form [formGroup]="form">
         <mat-card class="form">
-          <mat-form-field>
-            <input type="text" matInput placeholder="category" formControlName="category" />
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" matInput placeholder="account" formControlName="account" />
-          </mat-form-field>
+          <mat-select placeholder="category" [(value)]="selectedCategoryValue" #category>
+            <mat-option *ngFor="let category of categories" value="{{ category }}">
+              {{ category }}
+            </mat-option>
+          </mat-select>
+          <mat-select placeholder="account" [(value)]="selectedAccountValue" #account>
+            <mat-option *ngFor="let account of accounts" value="{{ account.name }}">
+              {{ account.name }}
+            </mat-option>
+          </mat-select>
           <div #income>
             <mat-form-field floatLabel="never" *ngIf="transaction && transaction.income !== '0' || add">
               <input type="text" matInput placeholder="income" formControlName="income" />
@@ -55,7 +59,7 @@
 
   </div>
 </div>
-<div class="form-container full-height" *ngIf="!(transaction || account) && !add">
+<div class="form-container full-height" *ngIf="!(transaction || account) && !add && !this.addEditService.loading">
   <mat-card class="info-container">
     <span>Click any item to edit or remove it</span>
     <span>or</span>

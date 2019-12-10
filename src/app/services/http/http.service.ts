@@ -1,36 +1,60 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import { RequestedTransactionsModel } from '../../models/transactions/requested.transactions.model';
-import { RequestedAccountsModel } from '../../models/accounts/requested.accounts.model';
 
 import {HttpClient} from "@angular/common/http";
-
-import { LIST_CONFIG } from '../../components/list/list.config';
-import {DayTransactionsModel} from "../../models/transactions/day.transactions.model";
-import {AccountsModel} from "../../models/accounts/accounts.model";
-import {TransactionModel} from "../../models/transactions/transaction.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+  token: string;
 
   constructor(private http: HttpClient) { }
 
+  auth(url: string, body) {
+    return this.http.post(url, body, {observe: 'response'});
+  }
+
   get(url: string) {
-    return this.http.get(url);
+    const options = this.getOptions();
+    return this.http.get(url, options);
   }
 
   put(url: string, body) {
-    return this.http.put(url, body);
+    const options = this.getOptions();
+    return this.http.put(url, body, options);
   }
 
   post(url: string, body) {
-    return this.http.post(url, body);
+    const options = this.getOptions();
+    return this.http.post(url, body, options);
   }
 
   delete(url: string) {
-    return this.http.delete(url);
+    const options = this.getOptions();
+    return this.http.delete(url, options);
+  }
+
+  private getOptions() {
+    let options;
+    if (this.token) {
+      options = {
+        headers: {
+          Authorization: this.token,
+        }
+      }
+    } else {
+      const storageToken = localStorage.getItem('auth');
+      if (storageToken) {
+        options = {
+          headers: {
+            Authorization: storageToken,
+          }
+        }
+      } else {
+        options = {};
+      }
+    }
+
+    return options;
   }
 }

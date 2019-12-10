@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { HttpService } from '../http/http.service';
-
-import { RequestedTransactionsModel } from '../../models/transactions/requested.transactions.model';
-import { RequestedAccountsModel } from '../../models/accounts/requested.accounts.model';
-import {AccountsModel} from "../../models/accounts/accounts.model";
-import {DayTransactionsModel} from "../../models/transactions/day.transactions.model";
-import {TransactionModel} from "../../models/transactions/transaction.model";
 
 @Injectable({
   providedIn: 'root'

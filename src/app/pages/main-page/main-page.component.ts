@@ -24,10 +24,6 @@ export class MainPageComponent implements OnInit {
       active: false,
       slideCount: 1,
     },
-    'accounts': {
-      active: false,
-      slideCount: 2,
-    },
   };
 
   constructor() { }

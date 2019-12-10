@@ -9,13 +9,7 @@
     <div class="slider-button-container" (click)="changeSliderView(slideProps.stats)">
       <button mat-button class="slider-button"
               [class.button-active]="slideProps.stats.active">
-        Statistics
-      </button>
-    </div>
-    <div class="slider-button-container" (click)="changeSliderView(slideProps.accounts)">
-      <button mat-button class="slider-button"
-              [class.button-active]="slideProps.accounts.active">
-        Accounts
+        Accounts and Statistics
       </button>
     </div>
   </mat-card>
@@ -34,23 +28,23 @@
         </mat-card>
       </div>
       <div class="slide" id="stats">
+        <div class="account-container">
+          <mat-card class="list-container">
+            <app-list type="accounts"
+                      (accountOpen)="onAccountOpen($event)"
+                      [reload]="reload"></app-list>
+          </mat-card>
+          <mat-card class="edit-container">
+            <app-add-edit type="accounts"
+                          (accountChanged)="onAccountChange()"
+                          [account]="account"></app-add-edit>
+          </mat-card>
+        </div>
         <div class="chart-container">
           <mat-card>
             <app-pie-chart></app-pie-chart>
           </mat-card>
         </div>
-      </div>
-      <div class="slide" id="accounts">
-        <mat-card class="list-container">
-          <app-list type="accounts"
-                    (accountOpen)="onAccountOpen($event)"
-                    [reload]="reload"></app-list>
-        </mat-card>
-        <mat-card class="edit-container">
-          <app-add-edit type="accounts"
-                        (accountChanged)="onAccountChange()"
-                        [account]="account"></app-add-edit>
-        </mat-card>
       </div>
     </div>
   </div>

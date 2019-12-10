@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import {LoginService} from "../../services/login/login.service";
+import {HeaderService} from "../../services/header/header.service";
 
 @Component({
   selector: 'app-login',
@@ -15,15 +17,37 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private loginService: LoginService,
+              private headerService: HeaderService) { }
 
   ngOnInit() {
   }
 
   submit() {
-    if (this.form.value.username === 'admin' && this.form.value.password === 'admin') {
+    const login = this.form.value.username;
+    const password = this.form.value.password;
+    if (login.length && password.length) {
       this.error = null;
-      this.router.navigateByUrl('/main-page');
+      this.loginService.login({login, password}).subscribe(
+        (resp: any) => {
+          const token = resp.headers.get('Authorization');
+
+          localStorage.setItem('auth', token);
+          this.loginService.setToken(token);
+
+          localStorage.setItem('username', resp.body.login);
+          this.loginService.username = resp.body.login;
+
+          this.headerService.visible = true;
+          this.headerService.username = resp.body.login;
+
+          this.router.navigateByUrl('/main-page');
+        },
+        () => {
+          this.error = 'Wrong credentials';
+        }
+      );
     } else {
       this.error = 'Wrong credentials';
     }

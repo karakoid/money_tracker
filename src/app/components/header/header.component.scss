@@ -7,10 +7,21 @@
   height: $header-height;
   color: $header-font-color;
   box-shadow: $header-box-shadow;
-  background: $primary-color;
+  background: $header-color;
+  display: flex;
+  justify-content: space-between;
 
   .title {
     font-size: $header-text-size;
     margin: 0 $header-text-margin;
+  }
+
+  .profile-container {
+    display: flex;
+    align-items: center;
+
+    .username {
+      font-size: $header-text-size / 1.5;
+    }
   }
 }

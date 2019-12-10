@@ -8,16 +8,17 @@
   width: 100%;
   height: $content-container-height;
   overflow: hidden;
+  background: #F1F2F2;
 }
 
-.content-container::after {
-  content: "";
-  position: absolute;
-  top: -350px;
-  left: -120px;
-  width: 100%;
-  height: $content-container-after-height;
-  background: $primary-color;
-  transform: rotate(-15deg);
-  z-index: -1;
-}
+//.content-container::after {
+//  content: "";
+//  position: absolute;
+//  top: -350px;
+//  left: -120px;
+//  width: 100%;
+//  height: $content-container-after-height;
+//  background: $primary-color;
+//  transform: rotate(-15deg);
+//  z-index: -1;
+//}
